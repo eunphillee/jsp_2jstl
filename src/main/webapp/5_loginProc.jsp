@@ -18,15 +18,14 @@
 		//로그인 sql 실행을 위한 메소드 호출
 		UserAccountVO vo = dao.selectForLogin(userid, password);
 		if(vo !=null){
-			out.print("<h2>로그인 성공 했습니다.</h2>");
 			session.setAttribute("user", vo);  
 			// 세션에 필요한 데이터 저장. - 로그인 사용자 정보
-		response.sendRedirect("/2JSTL/"); 
-			// HOME 경로로 url 설정. 서버측에서 url로 페이지 요청 
+			response.sendRedirect("/2JSTL/");   
+			//HOME 경로로 url 설정. 서버측에서 url 로 페이지 요청
+		
 		}else {
-
 			response.sendRedirect("5_login.jsp?fail=y");
-		 
+		    // 서버측에서 새로운 url로 페이지 요청. 로그인 실패를 알리기 위한 파라미터 추가
 		}
 	%>
 	
